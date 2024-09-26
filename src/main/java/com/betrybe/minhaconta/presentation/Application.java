@@ -45,6 +45,21 @@ public class Application {
    * Req. 5 – Run menu options.
    */
   public void runOptionAction(char option) {
+    switch (option) {
+      case '1': this.registerClient();
+        break;
+      case '2': this.registerClientAddress();
+        break;
+      case '3': this.registerAddressDevices();
+        break;
+      case '4': this.estimateAddressBill();
+        break;
+      case '5': this.optimizeEnergyBill();
+        break;
+      case '6': ui.showMessage("Volte sempre!");
+        break;
+      default: ui.showMessage("Opção inválida!");
+    }
   }
 
   /**
