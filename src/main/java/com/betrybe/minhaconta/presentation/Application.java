@@ -1,8 +1,8 @@
 package com.betrybe.minhaconta.presentation;
 
 import com.betrybe.minhaconta.business.EnergyAccount;
+import com.ions.lightdealer.sdk.model.Client;
 import com.ions.lightdealer.sdk.service.LightDealerApi;
-import java.util.Scanner;
 
 /**
  * The type Application.
@@ -66,6 +66,9 @@ public class Application {
    * Req. 6 – Register client.
    */
   public void registerClient() {
+    Client client = new Client();
+    this.ui.fillClientData(client);
+    this.api.addClient(client);
   }
 
   /**
