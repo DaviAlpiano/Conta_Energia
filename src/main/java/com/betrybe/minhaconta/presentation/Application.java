@@ -3,6 +3,7 @@ package com.betrybe.minhaconta.presentation;
 import com.betrybe.minhaconta.business.EnergyAccount;
 import com.ions.lightdealer.sdk.model.Address;
 import com.ions.lightdealer.sdk.model.Client;
+import com.ions.lightdealer.sdk.model.ElectronicDevice;
 import com.ions.lightdealer.sdk.service.LightDealerApi;
 
 /**
@@ -91,6 +92,18 @@ public class Application {
    * Req. 8 – Register address devices.
    */
   public void registerAddressDevices() {
+    String matricula = ui.inputAddressRegistration();
+    Address address = api.findAddress(matricula);
+    if (address == null) {
+      ui.showMessage("Endereço não encontrado!");
+    } else {
+      int disp = ui.inputNumberOfDevices();
+      for (int i = 0; i < disp; i++) {
+        ElectronicDevice electro = new ElectronicDevice();
+        ui.fillDeviceData(electro);
+        api.addDeviceToAddress(electro, address);
+      }
+    }
   }
 
   /**
