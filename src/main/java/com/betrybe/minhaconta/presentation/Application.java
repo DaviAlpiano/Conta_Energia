@@ -126,11 +126,24 @@ public class Application {
    * Req. 10 – Optimizes the energy bill.
    */
   public void optimizeEnergyBill() {
+    String cpf = ui.inputClientCpf();
+    Client client = api.findClient(cpf);
+    if (client == null) {
+      ui.showMessage("Pessoa cliente não encontrada!");
+    } else {
+      EnergyAccount account = new EnergyAccount(client);
+      suggestReducedUsage(account);
+    }
   }
 
   /**
    * Req 10 - Aux. Method to display high consumptions devices.
    */
   public void suggestReducedUsage(EnergyAccount energyAccount) {
+    ui.showMessage("Considere reduzir o uso dos seguintes dispositivos:");
+    ElectronicDevice[] electros = energyAccount.findHighConsumptionDevices();
+    for (ElectronicDevice electronicDevice : electros) {
+      ui.showMessage(electronicDevice.getName());
+    }
   }
 }
