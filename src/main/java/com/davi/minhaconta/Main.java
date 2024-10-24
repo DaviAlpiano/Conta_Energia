@@ -1,7 +1,7 @@
-package com.betrybe.minhaconta;
+package com.davi.minhaconta;
 
-import com.betrybe.minhaconta.presentation.Application;
-import com.betrybe.minhaconta.presentation.ConsoleUserInterface;
+import com.davi.minhaconta.presentation.Application;
+import com.davi.minhaconta.presentation.ConsoleUserInterface;
 import java.util.Scanner;
 
 /**

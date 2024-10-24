@@ -1,4 +1,4 @@
-package com.betrybe.minhaconta.presentation;
+package com.davi.minhaconta.presentation;
 
 import com.ions.lightdealer.sdk.model.Address;
 import com.ions.lightdealer.sdk.model.Client;
